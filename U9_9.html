@@ -1,0 +1,42 @@
+<!-- Write function distance that calculates the distance between two points (x1, y1) and (x2,
+y2). All numbers and return values should be floating-point values. Incorporate this function into a
+script that enables the user to enter the coordinates of the points through an HTML5 form. -->
+<!DOCTYPE html>
+
+<html>
+   
+<head>
+
+    <title>9.9</title>
+
+    <script type="text/javascript">
+    function start (){
+        var button = document.getElementById("buton");
+        buton.addEventListener("click",calculate,false);
+    }
+    function calculate(){
+        var x1 = parseFloat(document.getElementById("X1").value);
+        var y1 = parseFloat(document.getElementById("Y1").value);
+        var x2 = parseFloat(document.getElementById("X2").value);
+        var y2 = parseFloat(document.getElementById("Y2").value);
+        var result = Math.sqrt(Math.pow(x2-x1,2)+Math.pow((y2-y1),2));
+        document.getElementById("result").innerHTML="Distanca = "+result;
+    }
+    window.addEventListener("load",start,false);
+    </script>
+
+</head>
+
+<body>
+   <form action="#">
+     <label>X1: 
+        <input id = "X1" type="number"></label> 
+        <label>Y1: <input id = "Y1" type="number"></label> 
+        <label>X2: <input id = "X2" type="number"></label> 
+        <label>Y2: <input id = "Y2" type="number"></label> 
+     <input id="buton" type="button" value="Calculate">
+   </form>
+   <p id="result"></p>
+</body>
+
+</html>

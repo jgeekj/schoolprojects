@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Tabela</title>
+    <style type="text/css">
+        table {
+            float: center;
+            margin-left: 28%;
+            width: 500px;
+            font-size: large;
+        }
+
+        thead {
+            background-color: blue;
+            color: white;
+            font-weight: 400;
+        }
+
+        .oddRow {
+            background-color: gray;
+            color: whitesmoke;
+        }
+    </style>
+    <script type="text/javascript">
+
+        document.writeln("<table>");
+        document.writeln("<caption> Tabela </caption>");
+        document.writeln("<thead>");
+        document.writeln("<tr> <th> number </th> ");
+        document.writeln("<th> square </th>");
+        document.writeln("<th>Cube </th> </tr></thead>");
+        document.writeln("<tbody>");
+
+        for (var i = 0; i <= 10; i++) {
+            var square = i * i;
+            var cube = Math.pow(i, 3);
+            if (i % 2 != 0) {
+                document.writeln("<tr class='oddRow'><td>" + i + "</td>");
+                document.writeln("<td>" + square + "</td>");
+                document.writeln("<td>" + cube + "</td><</tr>");
+            } else {
+                document.writeln("<tr><td>" + i + "</td>");
+                document.writeln("<td>" + square + "</td>");
+                document.writeln("<td>" + cube + "</td><</tr>");
+            }
+        }
+
+        document.writeln("</tbody></table>");
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

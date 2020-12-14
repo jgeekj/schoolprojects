@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <!-- Write a script that uses a form to get the radius of a circle from the user, then calls the function
+    circleArea to calculate the area of the circle and display the result in a paragraph on the page.
+    To get the number from the form -->
+<head>
+
+    <title>9.7</title>
+
+    <script type="text/javascript">
+    function start (){
+        var button = document.getElementById("buton");
+        buton.addEventListener("click",Area,false);
+    }
+    function Area(){
+        var input = document.getElementById("radius");
+        var radius = parseFloat(input.value);
+        var result = document.getElementById("result");
+        result.innerHTML = "Siperfaqja eshte "+(Math.PI*Math.pow(radius,2));
+    }
+    window.addEventListener("load",start,false);
+    </script>
+
+</head>
+
+<body>
+   <form action="#">
+     <label>Radius: 
+        <input id = "radius" type="number"></label> 
+     <input id="buton" type="button" value="Calculate">
+   </form>
+   <p id="result"></p>
+</body>
+
+</html>

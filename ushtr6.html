@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+    <!-- Shkruani një skript që lexon një numër me katër shifra nëpërmjet një prompt 
+    dialog dhe e enkripton atë sipas një rregulli. Zëvendësoni çdo shifër me modul 10 
+    (shuma e shifrës me 7) dhe me pas shkëmbeni shifrën e parë me të treten dhe shifrën
+     e dytë me të katërtën. Shfaqni rezultatin si një tekst në HTML5. -->
+     <!-- Shkruani një skript që lexon një numër me 4 shifra të enkriptuar 
+     sipas ushtrimit 6 dhe e dekripton atë në numrin origjinal -->
+<head>
+    <title>Enkriptim/Dekriptim Ushtrimi 6-7</title>
+
+    <script type="text/javascript">
+      function start() {
+            var num = window.prompt("Jep nje numer me 4 shifra");
+            if (isNaN(parseInt(num))) {
+                window.alert("Te lutem reload,duhet te japesh numer");
+            }
+            var encrypted = encrypt(num);
+
+            document.getElementById("tobeWritten").innerHTML = "Numri i enkriptuar eshte "+encrypted;
+        }
+        function dekript(){
+            var num = window.prompt("Jep nje numer me 4 shifra");
+            if (isNaN(parseInt(num))) {
+                window.alert("Te lutem reload,duhet te japesh numer");
+            }
+            var decrypted = decrypt(num);
+
+            document.getElementById("tobeWritten").innerHTML = "Numri i dekriptuar eshte "+decrypted;
+        }
+
+        // console.log("Encrypton of 6789 is "+encrypt('6789'));
+        // console.log("Decrypton of it is"+decrypt(""+encrypt('6789')));
+        function encrypt(num) {
+            //ndajme secilen shifer ne nje vektor shifrash
+            var shifrat = [];
+            for (var i = 0; i < num.length; i++) {
+                shifrat[i] = num.charAt(i);
+            }
+            // console.log(shifrat);
+
+            //kembimi i vendeve
+            //shkembejme vendet e tyre sipas kerkeses
+            var temp = shifrat[0];
+            shifrat[0] = shifrat[2];
+            shifrat[2] = temp;
+            var temp = shifrat[1];
+            shifrat[1] = shifrat[3];
+            shifrat[3] = temp;
+            // console.log(shifrat);
+            var  finalEnc="";
+            //kryejme enkriptimin
+                   
+            for (var i = 0; i < shifrat.length; i++) {
+                shifrat[i] = (parseInt(shifrat[i]) + 7) % 10;
+                //i bashkojme te gjitha ne nje string
+                finalEnc +=shifrat[i];
+            }
+
+            //console.log(shifrat);
+            // console.log(finalEnc)
+            return finalEnc;
+        }
+      
+        
+        function decrypt(num) {
+            var shifrat = [];
+             //ndajme secilen shifer ne nje vektor shifrash
+            for (var i = 0; i < num.length; i++) {
+                shifrat[i] = num.charAt(i);
+            }
+
+             console.log(shifrat);
+
+            //kembimi i vendeve
+            var temp = shifrat[0];
+            shifrat[0] = shifrat[2];
+            shifrat[2] = temp;
+            var temp = shifrat[1];
+            shifrat[1] = shifrat[3];
+            shifrat[3] = temp;
+            //console.log(shifrat);
+
+            //kalimi ne integers
+            for (var i = 0; i < 4; i++) {
+                shifrat[i] = parseInt(shifrat[i]);
+            }
+            //kryejme inversin e rregullit te dekriptimit dhe i bashkojme ne nje string
+            var sum = "";
+            for (var i = 0; i < 4; i++) {
+                var n = (shifrat[i] + 3) % 10;
+                sum +=n;
+            }
+            return sum;
+        }
+    </script>
+
+</head>
+
+<body>
+    <form>
+        <input type="button" onclick="start()" value="Enkripto" >
+        <input type="button" onclick="dekript()" value="Dekripto" >
+        <p id ="tobeWritten"></p>
+    </form>
+</body>
+
+</html>

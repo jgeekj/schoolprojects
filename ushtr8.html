@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+    <!-- Një dyqan shet pesë produkte me çmime si më poshtë: produkt 1, $2.98; produkt 2,
+     $4.50; produkt 3, $9.98; produkt 4, $4.49; dhe produkt 5, $6.87. 
+     Shkruani një skript që lexon një seri vlerash nga përdoruesi si më poshtë:
+    a) Numri i produktit;
+    b) Sasia e shitur në një ditë.
+    Programi juaj duhet të përdori një instruksion switch për të përcaktuar çmimin
+     e çdo produkti të shitur dhe të llogarisë dhe të shfaq në HTML5 vlerën e shumës
+      totale të produkteve të shitura për një javë. -->
+<head>
+    <!-- 
+    produkt 1, $2.98; 
+    produkt 2, $4.50;
+    produkt 3, $9.98;
+    produkt 4, $4.49;
+   -->
+    <title>Mail</title>
+
+    <script type="text/javascript">
+     var sP1 = 0, sP2 = 0,sP3 = 0,sP4 = 0;
+     var prN;
+     var sumT = 0;
+   
+     while(true){
+        prN = parseInt(window.prompt(" Numri produktit:(-1 per ta hequr) ")); 
+        if (prN==-1 ){
+            break;
+        }
+      
+        var quantity = parseInt(window.prompt(" Sasia: "));
+         switch(prN){
+             case 1:
+           
+             sP1+=2.98*quantity;
+             break;
+             case 2:
+            
+             sP2+=4.50*quantity;
+             break;
+             case 3:
+         
+             sP3+=9.98*quantity;
+             break;
+             case 4:
+         
+             sP4+=4.49*quantity;
+             break;
+             default:
+             window.alert("Jep produkt qe ekziston");
+             break;
+         }
+
+       
+     }
+     sum = sP1+sP2+sP3+sP4;
+         document.write(
+             "<h1>Totali "+sum+"</h1>"
+         );
+    </script>
+
+</head>
+
+<body>
+   
+</body>
+
+</html>

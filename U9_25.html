@@ -1,0 +1,48 @@
+<!-- Write a script that plays a “guess the number” game as follows: Your program chooses the
+number to be guessed by selecting a random integer in the range 1 to 1000. The script displays the
+prompt Guess a number between 1 and 1000 next to a text field. The player types a first guess into
+the text field and clicks a button to submit the guess to the script. If the player's guess is incorrect,
+your program should display Too high. Try again. or Too low. Try again. to help the player “zero
+in” on the correct answer and should clear the text field so the user can enter the next guess. When
+the user enters the correct answer, display Congratulations. You guessed the number! and clear the
+text field so the user can play again. -->
+<!DOCTYPE html>
+
+<html>
+   
+<head>
+
+    <title>9.25</title>
+
+    <script type="text/javascript">
+     var nr = parseInt(Math.random()*1000);
+     console.log(nr);
+    function start (){
+        var button = document.getElementById("buton");
+        buton.addEventListener("click",validate,false);
+    }
+    function validate(){
+     
+      var vl = parseInt(document.getElementById('num').value);
+      if (nr==vl){
+          document.getElementById('result').innerHTML="Congrats";
+      } else if(vl>nr) {
+        document.getElementById('result').innerHTML="Too high! Try again.";
+      } else{
+        document.getElementById('result').innerHTML="Too low! Try again.";
+      }
+    }
+    window.addEventListener("load",start,false);
+    </script>
+
+</head>
+
+<body>
+   <form action="#">
+        <label>Guess it: <input id = "num" type="number"></label> 
+        <input id="buton" type="button" value="Submit">
+   </form>
+   <p id="result"></p>
+</body>
+
+</html>

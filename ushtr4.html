@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Ushtr 4</title>
+   
+    <script type="text/javascript">
+
+         var n = window.prompt("jep numrin");
+        
+        if (n.length!=5 || isNaN(parseInt(n))){
+            window.alert("Numri te jete me 5 karaktere");
+            n = window.prompt("jep numrin");
+        }  
+         if (palindrome(n,0,n.length-1)){
+             window.alert("Palindrome");
+         } else{
+            window.alert("JO Palindrome");
+         }
+    
+    function palindrome ( str, i, j)  {
+        if (i==j) return true;
+   
+        if (str.charAt(i) != str.charAt(j)){
+            return false;
+        }
+        return palindrome(str,i+1,j-1);
+        
+    }
+       
+       
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

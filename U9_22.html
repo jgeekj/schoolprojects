@@ -1,0 +1,131 @@
+<!-- 
+    9.22 Computers are playing an increasing role in education. Write a program that will help an
+elementary-school student learn multiplication. Use Math.random to produce two positive one-digit
+integers. It should then display a question such as
+How much is 6 times 7? 
+The student then types the answer into a text field. Your program checks the student’s answer. If it’s
+correct, display the string "Very good!" and generate a new question. If the answer is wrong, display
+the string "No. Please try again." and let the student try the same question again repeatedly
+until he or she finally gets it right.
+9.23 The use of computers in education is referred to as computer-assisted instruction (CAI).
+One problem that develops in CAI environments is student fatigue. This problem can be eliminated
+by varying the computer's dialogue to hold the student's attention. Modify the program in
+Exercise 9.22 to print one of a variety of comments for each correct answer and each incorrect answer.
+The set of responses for correct answers is as follows:
+Very good!
+Excellent!
+Nice work!
+Keep up the good work!
+The set of responses for incorrect answers is as follows:
+No. Please try again.
+Wrong. Try once more.
+Don't give up!
+No. Keep trying.
+Use random number generation to choose a number from 1 to 4 that will be used to select an
+appropriate response to each answer. Use a switch statement to issue the responses.
+9.24 More sophisticated computer-assisted instruction systems monitor the student’s performance
+over a period of time. The decision to begin a new topic is often based on the student’s success
+with previous topics. Modify the program in Exercise 9.23 to count the number of correct and
+incorrect responses typed by the student. After the student answers 10 questions, your program
+should calculate the percentage of correct responses. If the percentage is lower than 75 percent, display
+Please ask your instructor for extra help, and reset the quiz so another student can try it.
+-->
+
+<!DOCTYPE html>
+
+<html>
+   
+<head>
+
+    <title>9.22</title>
+    <style>
+
+        #reset{
+            font-weight: 300;
+            font-size: large;
+            border-radius: 1.2em;
+            color: white;
+            background-color: red;
+        }
+    </style>
+    <script type="text/javascript">
+    var n1,n2,totalSakte = 0,count = 0;
+    function start (){
+        var buton = document.getElementById("buton");
+        buton.addEventListener("click",gjenero,false);
+        var b1 = document.getElementById("ctrl");
+        b1.addEventListener("click",validate,false);
+        var b2 = document.getElementById("reset");
+        b2.addEventListener("click",reset,false);
+    }
+     function reset(){
+         document.getElementById("pyetja").innerHTML="";
+         document.getElementById("result").innerHTML="";
+        totalSakte = 0;
+        count = 0;
+    }
+    function validate (){
+        var str1,str2,str3,str4,str5,str6,str7;
+        str1 = 'Very good!';
+        str2 = 'Excellent!';
+        str3= 'Nice work!';
+        str4 = 'Keep up the good work!';
+        count++;
+        str5 = 'No. Please try again.';
+        str6 = 'Wrong. Try once more.';
+        str7 = "Don't give up!";
+        str8 = 'No. Keep trying.';
+        var answers = [str1,str2,str3,str4];
+        var wrongAnswers = [str5,str6,str7,str8];
+
+        var prgj = document.getElementById('pergjigja').value;
+        // console.log(prgj);
+        // console.log(n1*n2);
+        // console.log(n1*n2==prgj);
+
+        if (n1*n2==prgj){
+            document.getElementById('result').innerHTML=answers[Math.floor(Math.random()*4)];
+            totalSakte++;
+            gjenero();
+        } else{
+            document.getElementById('result').innerHTML=wrongAnswers[Math.floor(Math.random()*3)];
+        }
+        console.log("Count ="+count);
+        console.log("Total = "+totalSakte);
+        if (count==10)
+        if (totalSakte/10>0.75){
+            window.alert("Good job! You scored above 75%!");
+            count = 0;
+            totalSakte = 0;
+        } else {
+            window.alert("Please ask your instructor for extra help, and reset the quiz so another student can try it."); 
+        }
+     
+ 
+    }
+    function gjenero(){
+         n1 = Math.floor(Math.random()*10);
+         n2 =  Math.floor(Math.random()*10);
+
+        document.getElementById("pyetja").innerHTML="Sa bejne "+n1+" shumezim " + n2;
+    }
+    window.addEventListener("load",start,false);
+    </script>
+
+</head>
+
+<body>
+    <p id="pyetja"></p>
+   <form action="#"> 
+    
+     <input id = "pergjigja" type="number"></label> 
+     <input id="buton" type="button" value="Gjenero">
+     <input id="ctrl" type="button" value="Kontrollo">
+     <p id = "result"></p>
+     <p><input id="reset" type="reset" value="Reset"></p>
+     
+   </form>
+   
+</body>
+
+</html>

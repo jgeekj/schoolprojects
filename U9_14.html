@@ -1,0 +1,44 @@
+<!-- Write a function multiple that determines, for a pair of integers, whether the second integer
+is a multiple of the first. The function should take two integer arguments and return true if the
+second is a multiple of the first, and false otherwise. Incorporate this function into a script that
+inputs a series of pairs of integers (one pair at a time). The HTML5 form should consist of two text
+fields and a button to initiate the calculation. The user should interact with the program by typing
+numbers in both text fields, then clicking the button. -->
+<!DOCTYPE html>
+
+<html>
+   
+<head>
+
+    <title>9.14</title>
+
+    <script type="text/javascript">
+    function start (){
+        var button = document.getElementById("buton");
+        buton.addEventListener("click",shfaq,false);
+    }
+    var multiple = (num1,num2) => { return num2%num1==0; }
+    var shfaq = () => {
+        var n1 = document.getElementById("n1").value;
+        var n2 = document.getElementById("n2").value;
+        if (n1!=0 && n2!=0)
+        if (multiple(parseInt(n1),parseInt(n2))) window.alert("Po eshte shumefish i te parit");
+        else window.alert("Jo nuk eshte shumefish i te parit");
+    }
+
+    window.addEventListener("load",start,false);
+    </script>
+
+</head>
+
+<body>
+   <form action="#">
+     <label>Numri 1: 
+     <input id = "n1" type="number"></label> 
+        <label>Numri 2: <input id = "n2" type="number"></label> 
+     <input id="buton" type="button" value="Calculate">
+   </form>
+   <p id="result"></p>
+</body>
+
+</html>
